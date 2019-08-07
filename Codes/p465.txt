@@ -1,0 +1,48 @@
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		while (scanner.hasNext()) {
+
+			String str1, str2;
+			BigInteger a, b, ans = BigInteger.ZERO, val;
+			String max = "2147483647";
+			val = new BigInteger(max);
+
+			str1 = scanner.next();
+			String symbol;
+			symbol = scanner.next();
+			str2 = scanner.next();
+
+			a = new BigInteger(str1);
+
+			b = new BigInteger(str2);
+			if (symbol.equals("+")) {
+				ans = a.add(b);
+			} else if (symbol.equals("*")) {
+				ans = a.multiply(b);
+			}
+			int res1 = a.compareTo(val);
+			int res2 = b.compareTo(val);
+			int res3 = ans.compareTo(val);
+			System.out.println(a + " " + symbol + " " + b);
+
+			if (res1 == 1) {
+				System.out.println("first number too big");
+			}
+			if (res2 == 1) {
+				System.out.println("second number too big");
+			}
+			if (res3 == 1) {
+				System.out.println("result too big");
+			}
+
+		}
+
+	}
+}

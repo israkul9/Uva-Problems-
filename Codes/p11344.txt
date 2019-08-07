@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.PrimitiveIterator;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int cs;
+		cs = scanner.nextInt();
+		int k = 1;
+		while (k <= cs) {
+			BigInteger a;
+			a = scanner.nextBigInteger();
+			int sz = scanner.nextInt();
+			int arr[] = new int[sz];
+			for (int i = 0; i < sz; ++i) {
+				int val;
+				val = scanner.nextInt();
+				arr[i] = val;
+			}
+			int ck = 0;
+			for (int i = 0; i < sz; ++i) {
+				BigInteger bi = BigInteger.valueOf(arr[i]);
+				if (a.mod(bi).equals(BigInteger.ZERO)) {
+					++ck;
+				}
+			}
+			if (ck == sz) {
+				System.out.println(a + " - Wonderful.");
+			} else {
+				System.out.println(a + " - Simple.");
+			}
+			k++;
+		}
+
+	}
+
+}

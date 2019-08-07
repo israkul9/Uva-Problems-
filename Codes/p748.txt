@@ -1,0 +1,22 @@
+import java.io.BufferedInputStream;
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner cin = new Scanner (new BufferedInputStream(System.in));
+		BigDecimal N;
+		
+		while (cin.hasNext())
+		{
+			BigDecimal R = BigDecimal.valueOf(1);
+			N = cin.nextBigDecimal();
+			int n = cin.nextInt();
+			R = N.pow(n).stripTrailingZeros();
+			System.out.println(R.toPlainString().replaceAll("^0", ""));
+		}
+		
+	}
+}
